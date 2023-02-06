@@ -1,9 +1,16 @@
-/*
 variable "subscription_id" {
   type = string
-  description = "Susbcription ID to work in"
 }
-*/
+
+variable "client_id" {
+  type = string
+}
+
+variable "client_secret" {
+  type = string
+}
+
+
 
 variable "mgmt_group_parent" {
   type = string
