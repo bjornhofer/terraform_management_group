@@ -1,7 +1,9 @@
+/*
 variable "subscription_id" {
   type = string
   description = "Susbcription ID to work in"
 }
+*/
 
 variable "mgmt_group_parent" {
   type = string
