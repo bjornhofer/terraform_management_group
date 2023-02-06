@@ -10,7 +10,9 @@ variable "client_secret" {
   type = string
 }
 
-
+variable "tenant_id" {
+  type = string
+}
 
 variable "mgmt_group_parent" {
   type = string
