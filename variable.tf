@@ -1,4 +1,4 @@
-variable "subscription_id"
+variable "subscription_id" {
   type = string
   description = "Susbcription ID to work in"
 }
