@@ -1,3 +1,4 @@
+// Provider
 variable "subscription_id" {
   type = string
 }
@@ -12,6 +13,19 @@ variable "client_secret" {
 
 variable "tenant_id" {
   type = string
+}
+
+variable "mg_structure" {
+  type = map
+  description = <<EOF
+    A map how the tree of management groups should look like. 
+    
+    Root Manamgenet Group has to be an ID!
+    
+    Example: "123412aa-aaaa-11111-1234567890aa" = 
+        {"parent_management_group_name" = ["child_management_group_name"]
+    }
+  EOF
 }
 
 variable "mgmt_group_parent" {
@@ -30,6 +44,9 @@ variable "management_group_subscriptions" {
 
 variable "dbg_simulate" {
   type        = bool
-  default     = true
-  description = "DEBUG: simulate creation | default: false | true = simulate creation, false = do not simulate creation"
+  default     = false
+  description = <<EOF
+    DEBUG: simulate creation 
+    default: false
+    Explanation: true = simulate creation, false = do not simulate creation"
 }
