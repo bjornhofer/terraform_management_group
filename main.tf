@@ -19,8 +19,8 @@ locals {
     layer1_name = keys(var.mg_structure[keys(var.mg_structure)[0]])[0]
     layer2_name = element(var.mg_structure[keys(var.mg_structure)[0]][keys(var.mg_structure[keys(var.mg_structure)[0]])[0]], 0)
 
-    layer1_id = local.mg_ids[local.layer1_name]
-    layer2_id = local.mg_ids[local.layer2_name]
+    layer1_id = local.layer1_exists ? local.mg_ids[local.layer1_name] : null
+    layer2_id = local.layer2_exists ? local.mg_ids[local.layer2_name] : null
 
 }
 
@@ -40,8 +40,8 @@ output "layer2_exists" {
 
 // Check parents
 locals {
-  layer1_parent_consitent = keys(var.mg_structure)[0] == local.mg_parents[local.layer1_name] ? true : false
-  layer2_parent_consitent = local.layer1_id == local.mg_parents[local.layer2_name] ? true : false
+  layer1_parent_consitent = local.layer1_exists ? keys(var.mg_structure)[0] == local.mg_parents[local.layer1_name] ? true : false : false
+  layer2_parent_consitent = local.layer2_exists ? local.layer1_id == local.mg_parents[local.layer2_name] ? true : false : false
 }
 
 output "layer1_parent_consitent" {
