@@ -15,6 +15,7 @@ variable "tenant_id" {
   type = string
 }
 
+// Module
 variable "mg_structure" {
   type = map
   description = <<EOF
