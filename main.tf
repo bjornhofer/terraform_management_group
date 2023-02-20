@@ -14,8 +14,6 @@ locals {
     mg_parents = {for mg_detail in data.azurerm_management_group.all : mg_detail.display_name => split("/",mg_detail.parent_management_group_id)[4]}
     mg_ids = {for mg_detail in data.azurerm_management_group.all : mg_detail.display_name => split("/",mg_detail.id)[4]}
 
-    test = element(var.mg_structure[keys(var.mg_structure)[0]][keys(var.mg_structure[keys(var.mg_structure)[0]])[0]], 0)
-
     layer1_name = keys(var.mg_structure[keys(var.mg_structure)[0]])[0]
     layer2_name = element(var.mg_structure[keys(var.mg_structure)[0]][keys(var.mg_structure[keys(var.mg_structure)[0]])[0]], 0)
 
